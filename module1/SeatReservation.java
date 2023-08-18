@@ -6,10 +6,14 @@ public class SeatReservation {
     private String lastName;
     
 public String getFlightDesignator() {
-return "";
+return flightDesignator;
 }
 
 public void setFlightDesignator(String fd) {
+    if ((fd.lenght() < 4) || (fd.length() > 6)) {
+        throw new IllegalArgumentException("Invalid flight designator");
+    }
+    flightDesignator = fd;
 }
 
 public java.time.LocalDate getFlightDate() {
@@ -17,20 +21,23 @@ return flightDate;
 }
 
 public void setFlightDate(java.time.LocalDate Date) {
+    flightDate = Date;
 }
 
 public String getFristName() {
-return "";
+return firstName;
 }
 
 public void setFirstName(String fn) {
+    firstName = fn;
 }
 
 public String getLastName() {
-return "";
+return lastName;
 }
 
 public void setLastName(String ln) {
+    lastName = ln;
 }
 
 // Not sure if this is correct as I may have taken the instructions too literal.
