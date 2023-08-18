@@ -10,6 +10,9 @@ return "";
 }
 
 public void setFlightDesignator(String fd) {
+    if (fd == null)
+        throw new IllegalArgumentException("flight designator cannot be null");
+    this.flightDesignator = fd;
 }
 
 public java.time.LocalDate getFlightDate() {
