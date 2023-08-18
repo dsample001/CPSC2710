@@ -33,6 +33,7 @@ return "";
 public void setLastName(String ln) {
 }
 
+// Not sure if this is correct as I may have taken the instructions too literal.
 public String toString() {
     String output = "SeatReservation{flightDesignator=" + flightDesignator;
     output += ", flightDate=" + flightDate;
