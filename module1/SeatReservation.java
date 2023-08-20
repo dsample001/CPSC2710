@@ -13,7 +13,7 @@ public void setFlightDesignator(String fd) {
     if (fd == null) {
         throw new IllegalArgumentException("flight designator cannot be null");
     }
-    if ((fd.lenght() < 4) || (fd.length() > 6)) {
+    if ((fd.length() < 4) || (fd.length() > 6)) {
         throw new IllegalArgumentException("Invalid flight designator length");
     }
 
@@ -28,7 +28,7 @@ public void setFlightDate(java.time.LocalDate Date) {
     flightDate = Date;
 }
 
-public String getFristName() {
+public String getFirstName() {
 return firstName;
 }
 
