@@ -47,21 +47,24 @@ public void setLastName(String ln) {
 // Not sure if this is correct as I may have taken the instructions too literal.
 public String toString() {
     String output = "SeatReservation{flightDesignator=" + flightDesignator;
-    output += ", flightDate=" + flightDate;
-    output += ", ";
+    output += ",flightDate=" + flightDate;
+    
+    output += ",firstName=";
 
-    if (firstName.equals(null)) {
+    if (firstName == null) {
         output += "null";
     } 
     else {
-        output += firstName;
+        output += getFirstName();
     }
 
-    if (lastName.equals(null)) {
+    output += ",lastName=";
+
+    if (lastName == null) {
         output += "null";
     } 
     else {
-        output += lastName;
+        output += getLastName();
     }
 
     output += "}";
