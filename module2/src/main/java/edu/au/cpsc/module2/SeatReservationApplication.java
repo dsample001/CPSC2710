@@ -103,6 +103,9 @@ public class SeatReservationApplication extends Application {
             // No action on number of passengers?
             //TextField numberOfPassengersTextField = new
             System.out.println(seatReservation.toString());
+
+            // Save complete, exit application.
+            Platform.exit();
         }
     }
 
