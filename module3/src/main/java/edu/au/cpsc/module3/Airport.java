@@ -3,6 +3,7 @@ package edu.au.cpsc.module3;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,59 +45,77 @@ public class Airport {
 
     public static List<Airport> readAll() throws IOException {
 
+    // I know this is wrong but I havent been able to get anything to work...
     String fileName = "C:\\Users\\Dad\\Documents\\My Classes\\Auburn\\CPSC 2710 Software Construction\\CPSC2710\\module3\\src\\main\\resources\\edu\\au\\cpsc\\module3/airport-codes_csv.csv";
-    BufferedReader fileInput = new BufferedReader(new FileReader(fileName));
 
-    String line;
+    try {
+        BufferedReader fileInput = new BufferedReader(new FileReader(String.valueOf(fileName)));
 
-    List<Airport> tempAirportList = new ArrayList<>();
+        //String fileName = "/airport-codes_csv.csv";
+        //String fileName = "module3/airport-codes_csv.csv";
+        //BufferedReader fileInput = new BufferedReader(new FileReader(String.valueOf(fileName)));
+        //BufferedReader fileInput = new BufferedReader(new FileReader(fileName));
 
-    boolean firstLine = true;
+        // Doesn't compile for a static method.
+        //BufferedReader fileInput = new BufferedReader(new FileReader(getClass().getResource("airport-codes_csv.csv")));
 
-    while ((line = fileInput.readLine()) != null) {
+        // Doesn't work.
+        //BufferedReader fileInput = new BufferedReader(new FileReader(String.valueOf(Airport.class.getResource("/airport-codes_csv.csv"))));
 
-        // If true then skip first line of column headers.
-        if (firstLine) {
-            firstLine = false;
-                    }
-        else {
-            String[] lineArray;
-            lineArray = line.split(",");
+        String line;
 
-            String tempIdent = lineArray[0];
-            String tempType = lineArray[1];
-            String tempName = lineArray[2];
+        List<Airport> tempAirportList = new ArrayList<>();
 
-            // parse elevation to handle null value in file.
-            int tempElevationFeet = 0;
-            if (!lineArray[3].isEmpty()) {
-                tempElevationFeet = Integer.parseInt(lineArray[3]);
+        boolean firstLine = true;
+
+        while ((line = fileInput.readLine()) != null) {
+
+            // If true then skip first line of column headers.
+            if (firstLine) {
+                firstLine = false;
+            } else {
+                String[] lineArray;
+                lineArray = line.split(",");
+
+                String tempIdent = lineArray[0];
+                String tempType = lineArray[1];
+                String tempName = lineArray[2];
+
+                // parse elevation to handle null value in file.
+                int tempElevationFeet = 0;
+                if (!lineArray[3].isEmpty()) {
+                    tempElevationFeet = Integer.parseInt(lineArray[3]);
+                }
+
+                String tempContinent = lineArray[4];
+                String tempIsoCountry = lineArray[5];
+                String tempIsoRegion = lineArray[6];
+                String tempMunicipality = lineArray[7];
+                String tempGpsCode = lineArray[8];
+                String tempIataCode = lineArray[9];
+                String tempLocalCode = lineArray[10];
+
+                //parse coordinates.
+                String temp = lineArray[11].substring(1);
+                double tempCoordinatesLongitude = Double.parseDouble(temp);
+
+                temp = lineArray[12].substring(0, lineArray[12].length() - 1);
+                double tempCoordinatesLatitude = Double.parseDouble(temp);
+
+                Airport apt = new Airport(tempIdent, tempType, tempName, tempElevationFeet, tempContinent,
+                        tempIsoCountry, tempIsoRegion, tempMunicipality, tempGpsCode, tempIataCode, tempLocalCode,
+                        tempCoordinatesLongitude, tempCoordinatesLatitude);
+
+                tempAirportList.add(apt);
             }
 
-            String tempContinent = lineArray[4];
-            String tempIsoCountry = lineArray[5];
-            String tempIsoRegion = lineArray[6];
-            String tempMunicipality = lineArray[7];
-            String tempGpsCode = lineArray[8];
-            String tempIataCode = lineArray[9];
-            String tempLocalCode = lineArray[10];
-
-            //parse coordinates.
-            String temp = lineArray[11].substring(1);
-            double tempCoordinatesLongitude = Double.parseDouble(temp);
-
-            temp = lineArray[12].substring(0, lineArray[12].length()-1);
-            double tempCoordinatesLatitude = Double.parseDouble(temp);
-
-            Airport apt = new Airport(tempIdent, tempType, tempName, tempElevationFeet, tempContinent,
-                    tempIsoCountry, tempIsoRegion, tempMunicipality, tempGpsCode, tempIataCode, tempLocalCode,
-                    tempCoordinatesLongitude, tempCoordinatesLatitude);
-
-            tempAirportList.add(apt);
         }
-
-    }
         return tempAirportList;
+    }
+    catch (IOException e) {
+            System.out.println("Can not fing file.");
+            throw new RuntimeException(e);
+        }
     }
 
 
