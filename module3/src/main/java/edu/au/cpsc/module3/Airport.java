@@ -47,10 +47,12 @@ public class Airport {
 
     // I know this is wrong but I havent been able to get anything to work...
     String fileName = "C:\\Users\\Dad\\Documents\\My Classes\\Auburn\\CPSC 2710 Software Construction\\CPSC2710\\module3\\src\\main\\resources\\edu\\au\\cpsc\\module3/airport-codes_csv.csv";
+        //String fileName = "/airport-codes_csv.csv";
 
     try {
         BufferedReader fileInput = new BufferedReader(new FileReader(String.valueOf(fileName)));
 
+        //BufferedReader fileInput = new BufferedReader(new FileReader(String.valueOf(Airport.class.getResource(fileName))));
         //String fileName = "/airport-codes_csv.csv";
         //String fileName = "module3/airport-codes_csv.csv";
         //BufferedReader fileInput = new BufferedReader(new FileReader(String.valueOf(fileName)));
