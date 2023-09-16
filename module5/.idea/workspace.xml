@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="76d58d81-36a4-452d-9d77-1510dd655c50" name="Changes" comment="" />
+    <list default="true" id="b2809098-bb0a-4728-936f-21513086fd6c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
+  "customColor": "",
+  "associatedIndex": -1
 }]]></component>
-  <component name="ProjectId" id="2VUHTEi3tBTs30vFpc6BG95xDoR" />
+  <component name="ProjectId" id="2VUTsFTQ0JZzGRPxOsCy4cgMYFT" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,27 +21,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "module5",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="76d58d81-36a4-452d-9d77-1510dd655c50" name="Changes" comment="" />
-      <created>1694883745640</created>
+      <changelist id="b2809098-bb0a-4728-936f-21513086fd6c" name="Changes" comment="" />
+      <created>1694889863730</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1694883745640</updated>
-      <workItem from="1694883747016" duration="838000" />
+      <updated>1694889863730</updated>
+      <workItem from="1694889865400" duration="1000" />
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
 </project>
