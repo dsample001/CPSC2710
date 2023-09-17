@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Stardos Stencil";
+    src: url(../font/StardosStencil-Regular.ttf);
+}
+
+.root {
+    -fx-font-family: "Stardos Stencil";
+    -fx-font-size: 30pt;
+}
+
+#airports-btn {
+    -fx-background-image: url(../image/airports.PNG);
+    -fx-text-fill: white;
+    -fx-font-size: 40pt;
+}
+
+#seat-reservation-btn {
+    -fx-background-image: url(../image/seat.PNG);
+}
+
+#flight-schedule-btn {
+    -fx-background-image: url(../image/route.PNG);
+
+}
+#aircraft-btn {
+    -fx-background-image: url(../image/767.PNG);
+    -fx-font-size: 40pt;
+}
