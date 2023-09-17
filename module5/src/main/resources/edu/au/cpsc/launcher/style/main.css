@@ -14,7 +14,7 @@
     -fx-font-size: 40pt;
 }
 
-#seat-reservation-btn {
+#seat-reservations-btn {
     -fx-background-image: url(../image/seat.PNG);
 }
 

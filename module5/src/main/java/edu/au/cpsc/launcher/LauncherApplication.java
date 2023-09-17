@@ -12,7 +12,7 @@ public class LauncherApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Part1Application.class.getResource("launcher-app.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LauncherApplication.class.getResource("launcher-app.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 780, 320);
         stage.setTitle("Part 2");
         stage.setScene(scene);
