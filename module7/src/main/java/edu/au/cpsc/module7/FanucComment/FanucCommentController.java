@@ -43,6 +43,8 @@ public class FanucCommentController {
 
 
         fileToOpenTextField.textProperty().set(fileOpen.getPath());
+        infoTextArea.textProperty().set("Choose the file name to save the commented .ls file.");
+        fileToCreateButton.disableProperty().set(false);
 
     }
 
@@ -56,6 +58,10 @@ public class FanucCommentController {
         File fileToSave = fileChooser.showSaveDialog(new Stage());
 
         fileToCreateTextField.textProperty().set(fileToSave.getPath());
+
+        infoTextArea.textProperty().set("Select the Create File button to create the commented .ls file.");
+        createFileButton.disableProperty().set(false);
+
     }
 
     @FXML
@@ -72,6 +78,20 @@ public class FanucCommentController {
 
     @FXML
     protected void onCancelClick() throws IOException {
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
+        //System.exit(-1);
+
+    }
+
+
+    public void initialize() {
+        fileOpenButton.disableProperty().set(false);
+        fileToCreateButton.disableProperty().set(true);
+        cancelButton.disableProperty().set(false);
+        createFileButton.disableProperty().set(true);
+
+        infoTextArea.textProperty().set("Select Fanuc .ls file to comment out all non motion statements.");
 
 
     }
