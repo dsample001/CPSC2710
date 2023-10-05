@@ -1,16 +1,30 @@
 package edu.au.cpsc.module7.FanucComment;
 
-import javafx.stage.FileChooser;
-
 import java.io.*;
 
+/**
+ * Program creates a Fanuc .ls program with all non motion statements commented out.  This makes import into Delmia
+ * simulation software easier.
+ *
+ * Module 07
+ * @author Daniel Sample - CPSC 2710
+ * @version 2023.10.04
+ */
 public class FanucComment {
 
-
+    /**
+     * FanucComment constructor.
+     *
+     */
     public FanucComment() {
-
     }
 
+    /**
+     * createFile method, reads in file and comments out all non motion statements.
+     *
+     * @param openFile path for the file to read in.
+     * @param fileToCreate path for the file to create.
+     */
     public void createFile(String openFile, String fileToCreate) {
 
         try {
@@ -25,7 +39,7 @@ public class FanucComment {
 
             // Copy rest of program header over.
             boolean header = true;
-            while (header == true) {
+            while (header) {
                 line = bfReader.readLine();
                 if (line.equals("/MN")) {  //The program section begins with /MN.
                     header = false;
