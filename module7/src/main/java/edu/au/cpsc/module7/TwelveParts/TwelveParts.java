@@ -64,6 +64,18 @@ public class TwelveParts {
                         }
                     }
 
+                    // Handle FLOW_CHECK(#) statement.
+                    if (line.contains("CALL FLOW_CHECK(")) {
+                        line = line.substring(0, line.indexOf("(") + 1);
+                        line = line + (12 + i) + ") ;";
+                    }
+
+                    // Handle ERROR_CHECK(#) statement.
+                    if (line.contains("CALL ERROR_CHECK(")) {
+                        line = line.substring(0, line.indexOf("(") + 1);
+                        line = line + (12 + 1) + ") ;";
+                    }
+
                     // Handle move PR[##] statement.  Also removing the PR[] comment from statement.
                     if (line.contains("J PR[")) {
                         line = line.substring(0, line.indexOf("[") + 1);
