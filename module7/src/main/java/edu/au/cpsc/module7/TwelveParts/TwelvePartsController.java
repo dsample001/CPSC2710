@@ -1,9 +1,6 @@
 package edu.au.cpsc.module7.TwelveParts;
 
-import edu.au.cpsc.module7.FanucComment.FanucComment;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -14,7 +11,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 
 public class TwelvePartsController {
 

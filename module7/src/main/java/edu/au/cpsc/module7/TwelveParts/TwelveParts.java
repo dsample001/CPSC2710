@@ -12,27 +12,29 @@ import java.io.*;
  */
 public class TwelveParts {
 
+    /**
+     * TwelveParts constructor.
+     *
+     */
     public TwelveParts() {
     }
 
-
+    /**
+     * createFiles method, reads in file and creates 11 other part programs.
+     *
+     * @param openFile path for the file to read in.
+     */
     public void createFiles(String openFile) {
         try {
-            BufferedReader bfReader = new BufferedReader((new FileReader((openFile))));
-
-            // Process program header.
-            // Program name.
-            String line;
-            line = bfReader.readLine();
-            String currProgram = getProgramName(openFile);
-            String currPath = getProgramPath(openFile);
-            System.out.println("Current program name. " + currProgram);
-            System.out.println("Current program path. " + currPath);
-
-// Found a bug... Need to swap the for and the while loop....
-            // Make the while loop the outer and the for loop the inner...
-            // I need to loop through 12 times for each line read in....
             for (int i = 2; i <= 12; i++) {
+                BufferedReader bfReader = new BufferedReader((new FileReader((openFile))));
+
+                // Process program header.
+                // Program name.
+                String line;
+                line = bfReader.readLine();
+                String currProgram = getProgramName(openFile);
+                String currPath = getProgramPath(openFile);
 
                 // Build path and program name.
                 String tempPath = currPath + "\\" + currProgram.toLowerCase() + "_";
@@ -73,7 +75,7 @@ public class TwelveParts {
                     // Handle ERROR_CHECK(#) statement.
                     if (line.contains("CALL ERROR_CHECK(")) {
                         line = line.substring(0, line.indexOf("(") + 1);
-                        line = line + (12 + 1) + ") ;";
+                        line = line + (12 + i) + ") ;";
                     }
 
                     // Handle move PR[##] statement.  Also removing the PR[] comment from statement.
@@ -82,22 +84,20 @@ public class TwelveParts {
                         line = line + (92 + i) + "] 10% FINE    ;";
                     }
 
+                    // Write line to new program.
                     bfWriter.write("\n");
                     bfWriter.write(line);
 
-
                 }
+                // Close buffered reader and writer.
                 bfWriter.close();
-
+                bfReader.close();
             }
-
-            bfReader.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
     /**
      * getProgramName method, returns the program name in uppercase without the extension.
@@ -116,12 +116,17 @@ public class TwelveParts {
         return programName;
     }
 
+    /**
+     * getProgramPath method, returns the program directory path.
+     *
+     * @param program for the path and file naame of the file.
+     * @return String program path.
+     */
     private String getProgramPath(String program) {
         File programFile = new File(program);
 
-        // Get program path.
-        String programPath = programFile.getParent();
-        return programPath;
+        // Return program path.
+        return programFile.getParent();
     }
 
 }
