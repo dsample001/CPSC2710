@@ -8,7 +8,7 @@
    <children>
       <Button fx:id="fileToOpenButton" layoutX="14.0" layoutY="15.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#onFileOpenClick" prefWidth="100.0" text="File To Open" />
       <TextField fx:id="fileToOpenTextField" layoutX="123.0" layoutY="15.0" prefHeight="25.0" prefWidth="474.0" />
-      <TextArea fx:id="twelvePartsTextArea" layoutX="14.0" layoutY="50.0" prefHeight="350.0" prefWidth="583.0" />
+      <TextArea fx:id="infoTextArea" layoutX="14.0" layoutY="50.0" prefHeight="350.0" prefWidth="583.0" />
       <ButtonBar layoutX="397.0" layoutY="406.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
             <Button fx:id="createFilesButton" mnemonicParsing="false" onAction="#onCreateFilesClick" text="Create Files" />

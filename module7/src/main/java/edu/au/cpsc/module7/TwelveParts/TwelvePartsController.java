@@ -1,5 +1,6 @@
 package edu.au.cpsc.module7.TwelveParts;
 
+import edu.au.cpsc.module7.FanucComment.FanucComment;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,8 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class TwelvePartsController {
@@ -22,19 +25,37 @@ public class TwelvePartsController {
     private Button fileToOpenButton, createFilesButton, cancelButton;
 
     @FXML
-    private TextArea twelvePartsTextArea;
+    private TextArea infoTextArea;
 
     @FXML
     private TextField fileToOpenTextField;
 
+    FileChooser fileChooser = new FileChooser();
+
     @FXML
     protected void onFileOpenClick() {
 
+        fileChooser.setTitle("Select Fanuc .ls file to copy to other 11 parts.");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Fanuc Ls File", "*.ls"),
+                new FileChooser.ExtensionFilter("All Files", "*.*"));
+        File fileOpen = fileChooser.showOpenDialog(new Stage());
+
+        if (fileOpen.isFile()) {
+            fileToOpenTextField.textProperty().set(fileOpen.getPath());
+        }
+
+        fileToOpenTextField.textProperty().set(fileOpen.getPath());
+        infoTextArea.textProperty().set("Select create file to create programs for other parts.");
+        createFilesButton.disableProperty().set(false);
     }
 
     @FXML
     protected void onCreateFilesClick() {
-
+        TwelveParts tp = new TwelveParts();
+        String fileOpenPath = fileToOpenTextField.textProperty().get();
+        tp.createFiles(fileOpenPath);
+        infoTextArea.textProperty().set("Files created!");
     }
 
     @FXML
@@ -58,6 +79,6 @@ public class TwelvePartsController {
         message += "\n 2. The argument passed to LOAD_USER_FRAME(#) will be incremented based on part #";
         message += "\n 3. The argument passed to ERROR_CHECK(#) and FLOW_CHECK(#) will be incremented based on part#";
         message += "\n 4. The move to position register PR[##] will be modified based on the part #.";
-        twelvePartsTextArea.textProperty().set(message);
+        infoTextArea.textProperty().set(message);
     }
 }

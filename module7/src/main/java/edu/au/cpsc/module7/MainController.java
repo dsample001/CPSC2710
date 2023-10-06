@@ -5,27 +5,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
+
 public class MainController {
     @FXML
     private Label welcomeText;
 
-
-    /*
     @FXML
-    protected void onCommentClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-     */
+    private VBox baseVBox;
 
     @FXML
     protected void onCommentClick() throws IOException {
-
-        System.out.println("button clicked");
 
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fanuc-comment-view.fxml"));
@@ -38,14 +36,16 @@ public class MainController {
     @FXML
     protected void onTwelvePartsClick() throws IOException {
 
-        System.out.println("Twelve Parts button clicked");
-
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("twelve-parts-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Populate Twelve Parts");
         stage.setScene(scene);
         stage.show();
+    }
 
+    public void initialize() {
+        // Fanuc Yellow.
+        baseVBox.setBackground(Background.fill(Color.web("#f3da0b")));
     }
 }
