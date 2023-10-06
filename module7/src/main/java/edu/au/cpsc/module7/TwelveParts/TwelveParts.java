@@ -4,8 +4,9 @@ import java.io.*;
 
 /**
  * Program clones selected Fanuc .ls program to the othe 11 parts that are in this project.
- *
+ * <p>
  * Module 07
+ *
  * @author Daniel Sample - CPSC 2710
  * @version 2023.10.05
  */
@@ -28,8 +29,9 @@ public class TwelveParts {
             System.out.println("Current program name. " + currProgram);
             System.out.println("Current program path. " + currPath);
 
-
-
+// Found a bug... Need to swap the for and the while loop....
+            // Make the while loop the outer and the for loop the inner...
+            // I need to loop through 12 times for each line read in....
             for (int i = 2; i <= 12; i++) {
 
                 // Build path and program name.
@@ -45,18 +47,41 @@ public class TwelveParts {
 
                 // Transfer over rest of header.
                 while ((line = bfReader.readLine()) != null) {
-                    //if line.contains()
-                bfWriter.write("\n");
-                    bfWriter.write(line);
-                }
 
+                    // Handle LOAD_USER_FRAME(#) statement.
+                    if (line.contains("CALL LOAD_USER_FRAME(")) {
+                        line = line.substring(0, line.indexOf("(") + 1);
+                        line = line + i + ") ;";
+                    }
+
+                    // Handle CALL_MOVE_CART#PART# statement.
+                    if (line.contains("CALL MOVE_CART")) {
+                        line = line.substring(0, line.indexOf("T") + 1);
+                        if (i < 7) {  // Part 2-6 on Cart 1.
+                            line = line + 1 + "PART" + i + "    ;";
+                        } else {  //Part 1 - 6 on Cart 2.
+                            line = line + 2 + "PART" + (i - 6) + "    ;";
+                        }
+                    }
+
+                    // Handle move PR[##] statement.  Also removing the PR[] comment from statement.
+                    if (line.contains("J PR[")) {
+                        line = line.substring(0, line.indexOf("[") + 1);
+                        line = line + (92 + i) + "] 10% FINE    ;";
+                    }
+
+                    bfWriter.write("\n");
+                    bfWriter.write(line);
+
+
+                }
                 bfWriter.close();
+
             }
 
             bfReader.close();
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -64,6 +89,7 @@ public class TwelveParts {
 
     /**
      * getProgramName method, returns the program name in uppercase without the extension.
+     *
      * @param program for the path and file naame of the file.
      * @return String programName
      */
