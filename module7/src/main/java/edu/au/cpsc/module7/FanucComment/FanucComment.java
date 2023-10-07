@@ -35,7 +35,7 @@ public class FanucComment {
             //Change first line that contains program name.
             String line;
             line = bfReader.readLine();
-            bfWriter.write(setPrgramName(fileToCreate));
+            bfWriter.write(setProgramName(fileToCreate));
 
             // Copy rest of program header over.
             boolean header = true;
@@ -64,7 +64,7 @@ public class FanucComment {
                         bfWriter.write("\n" + line);
                     }
                     else {
-                        // Line already commented if has an ! at position 7.
+                        // Line already commented if it has an ! at position 7.
                         if ((line.length() > 8) & (line.charAt(7) == '!')) {
                             //System.out.println("\n comment" + line);
                             bfWriter.write("\n" + line);
@@ -110,7 +110,7 @@ public class FanucComment {
      * @param fileToCreate for the path and file name of the new file to create.
      * @return String firstLine
      */
-    private String setPrgramName(String fileToCreate) {
+    private String setProgramName(String fileToCreate) {
         File newFile = new File(fileToCreate);
         String programName;
 

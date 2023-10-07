@@ -3,7 +3,7 @@ package edu.au.cpsc.module7.TwelveParts;
 import java.io.*;
 
 /**
- * Program clones selected Fanuc .ls program to the othe 11 parts that are in this project.
+ * Program clones selected Fanuc .ls program to the other 11 parts that are in this project.
  * <p>
  * Module 07
  *
@@ -102,7 +102,7 @@ public class TwelveParts {
     /**
      * getProgramName method, returns the program name in uppercase without the extension.
      *
-     * @param program for the path and file naame of the file.
+     * @param program for the path and file name of the file.
      * @return String programName
      */
     private String getProgramName(String program) {
@@ -119,7 +119,7 @@ public class TwelveParts {
     /**
      * getProgramPath method, returns the program directory path.
      *
-     * @param program for the path and file naame of the file.
+     * @param program for the path and file name of the file.
      * @return String program path.
      */
     private String getProgramPath(String program) {
