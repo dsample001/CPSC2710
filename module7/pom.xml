@@ -11,9 +11,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <appModule>edu.au.cpsc.module7</appModule>
-    <appMainClass>edu.au.cpsc.module7.MainApplication</appMainClass>
-    <appVersion>1.0</appVersion>
 <junit.version>5.9.2</junit.version>  </properties>
 
   <dependencies>
