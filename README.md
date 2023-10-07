@@ -2,6 +2,7 @@
 CPSC2710 2023 Fall A
 ## Application Contents
 Application contains two programs.
+![Screenshot of main application.](/module7/MainApp.png)
 ## Program 1:
 The first will comment out the selected Fanuc .ls file.
 
